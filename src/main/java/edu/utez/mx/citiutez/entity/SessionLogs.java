@@ -16,9 +16,9 @@ public class SessionLogs {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
+    private Timestamp datetime;
+
     @ManyToOne
     @JoinColumn(name="id")
     private Employee employee;
-
-    private Timestamp datetime;
 }

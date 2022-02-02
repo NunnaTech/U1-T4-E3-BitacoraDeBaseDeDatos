@@ -37,4 +37,8 @@ public class Employee {
 
     @OneToMany (mappedBy = "employee")
     private List<SessionLogs> sessions;
+
+    @OneToMany(mappedBy = "employeeLogs")
+    private List<ChangeLogs> changeLogsEmployee;
+
 }

@@ -17,11 +17,10 @@ public class ChangeLogs {
 
     @ManyToOne
     @JoinColumn(name="id")
-    private Employee employee;
+    private Employee employeeLogs;
 
     @ManyToOne
     @JoinColumn(name="id")
-    private Customer customer;
-
+    private Customer customerLogs;
 
 }

@@ -4,6 +4,7 @@ import lombok.Data;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Table(name="customers")
@@ -36,5 +37,7 @@ public class Customer {
 
     private String card_digits;
 
+    @OneToMany(mappedBy = "customerLogs")
+    private List<ChangeLogs> customerLogs;
 
 }
