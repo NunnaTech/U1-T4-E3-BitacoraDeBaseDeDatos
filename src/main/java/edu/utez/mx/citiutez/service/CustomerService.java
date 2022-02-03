@@ -3,6 +3,7 @@ package edu.utez.mx.citiutez.service;
 import edu.utez.mx.citiutez.entity.Customer;
 import edu.utez.mx.citiutez.entity.Employee;
 import edu.utez.mx.citiutez.respository.CustomerRespository;
+import org.hibernate.event.spi.PostInsertEvent;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -21,6 +22,7 @@ public class CustomerService {
     public Customer getOne(int id){
         return customerRespository.findById(id).get();
     }
+
 
     public Customer save(Customer customer){
         return customerRespository.save(customer);
