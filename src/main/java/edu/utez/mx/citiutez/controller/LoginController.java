@@ -35,6 +35,9 @@ public class LoginController {
             sessionLogsService.save(logs);
             return "redirect:/session";
         }else {
+            Timestamp timestamp = new Timestamp(System.currentTimeMillis());
+            SessionLogs logs = new SessionLogs(timestamp,session);
+            sessionLogsService.save(logs);
             return "redirect:/employee/allEmployee";
         }
     }
