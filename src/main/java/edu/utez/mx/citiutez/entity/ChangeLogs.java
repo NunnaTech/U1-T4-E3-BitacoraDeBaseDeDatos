@@ -4,6 +4,7 @@ import lombok.Data;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.sql.Timestamp;
 
 @Entity
 @Table(name="change_logs")
@@ -19,10 +20,15 @@ public class ChangeLogs implements Serializable {
 
     @ManyToOne
     @JoinColumn(name="employee_id")
-    private Employee employeeLogs;
+    private Employee employeelogs;
 
     @ManyToOne
     @JoinColumn(name="customer_id")
-    private Customer customerLogs;
+    private Customer customerlogs;
 
+    private String action;
+
+    private String information;
+
+    private Timestamp datetime;
 }

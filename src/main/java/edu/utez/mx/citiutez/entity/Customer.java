@@ -39,7 +39,7 @@ public class Customer implements Serializable{
 
     private String card_digits;
 
-    @OneToMany(mappedBy = "customerLogs")
+    @OneToMany(mappedBy = "customerlogs")
     @JsonIgnore
     private List<ChangeLogs> customerLogs;
 

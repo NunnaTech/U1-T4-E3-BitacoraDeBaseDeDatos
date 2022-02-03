@@ -41,7 +41,7 @@ public class Employee implements  Serializable{
     @OneToMany (mappedBy = "employee")
     private List<SessionLogs> sessions;
 
-    @OneToMany(mappedBy = "employeeLogs")
+    @OneToMany(mappedBy = "employeelogs")
     @JsonIgnore
     private List<ChangeLogs> changeLogsEmployee;
 
