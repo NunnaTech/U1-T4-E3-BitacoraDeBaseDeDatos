@@ -11,6 +11,6 @@ import java.util.List;
 
 @Repository
 public interface EmployeeRespository extends CrudRepository<Employee,Integer> {
-    @Query(value = "SELECT * FROM employees WHERE email = :email", nativeQuery = true)
+    @Query(value = "SELECT * FROM employees WHERE email =:email", nativeQuery = true)
     Employee getByEmail(@Param(value="email") String email);
 }

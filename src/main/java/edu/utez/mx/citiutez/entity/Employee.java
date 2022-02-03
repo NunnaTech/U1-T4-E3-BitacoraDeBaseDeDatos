@@ -30,7 +30,7 @@ public class Employee implements  Serializable{
 
     private String phone;
 
-    private Date birthdate;
+    private String birthdate;
 
     private String email;
 
