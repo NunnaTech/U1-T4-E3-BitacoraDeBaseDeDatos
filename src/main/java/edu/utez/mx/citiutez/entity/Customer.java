@@ -1,20 +1,22 @@
 package edu.utez.mx.citiutez.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 
 import javax.persistence.*;
 import java.util.Date;
 import java.util.List;
-
+import java.io.Serializable;
 @Entity
 @Table(name="customers")
 @Data
-public class Customer {
+public class Customer implements Serializable{
 
     private static final long serialVersionUID = 1L;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id_customer")
     private Integer id;
 
     private String name;
@@ -38,6 +40,7 @@ public class Customer {
     private String card_digits;
 
     @OneToMany(mappedBy = "customerLogs")
+    @JsonIgnore
     private List<ChangeLogs> customerLogs;
 
 }

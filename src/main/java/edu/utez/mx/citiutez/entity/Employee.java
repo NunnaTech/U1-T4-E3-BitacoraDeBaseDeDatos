@@ -1,20 +1,23 @@
 package edu.utez.mx.citiutez.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 
 import javax.persistence.*;
 import java.util.Date;
 import java.util.List;
+import java.io.Serializable;
 
 @Entity
 @Table(name="employees")
 @Data
-public class Employee {
+public class Employee implements  Serializable{
 
     private static final long serialVersionUID = 1L;
 
     @Id
     @GeneratedValue(strategy =GenerationType.IDENTITY)
+    @Column(name = "id_employee")
     private Integer id;
 
     private String name;
@@ -34,11 +37,12 @@ public class Employee {
     private String password;
 
     private boolean isadmin;
-
+    @JsonIgnore
     @OneToMany (mappedBy = "employee")
     private List<SessionLogs> sessions;
 
     @OneToMany(mappedBy = "employeeLogs")
+    @JsonIgnore
     private List<ChangeLogs> changeLogsEmployee;
 
 }
