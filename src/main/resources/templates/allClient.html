@@ -27,7 +27,7 @@
 </div>
 
 <div class="container">
-    <a type="button" class="btn btn btn-labeled btn-success">
+    <a th:href="@{/client/register}" type="button" class="btn btn btn-labeled btn-success">
         <span class="btn-label"><i class="fa fa-plus"></i></span> Nuevo</a>
 </div>
 
@@ -44,15 +44,15 @@
             </tr>
             </thead>
             <tbody>
-            <tr>
-                <td>Timothy Mooney</td>
-                <td>Office Manager</td>
-                <td>London</td>
-                <td>37</td>
+            <tr th:each="tmps: ${listclientes}">
+                <td th:text="${tmps.name}"></td>
+                <td th:text="${tmps.firstname}"></td>
+                <td th:text="${tmps.secondname}"></td>
+                <td th:text="${tmps.rfc}"></td>
                 <td>
-                    <a type="button" class="btn btn-labeled btn-warning">
+                    <a type="button" class="btn btn-labeled btn-warning" th:href="@{/client/edit/{id}(id=${tmps.id})}">
                         <span class="btn-label"><i class="fa fa-pencil"></i></span> Editar</a>
-                    <a type="button" class="btn btn-labeled btn-danger">
+                    <a type="button" class="btn btn-labeled btn-danger" th:href="@{/client/delete/{id}(id=${tmps.id})}">
                         <span class="btn-label"><i class="fa fa-trash"></i></span> Eliminar</a>
                 </td>
             </tr>

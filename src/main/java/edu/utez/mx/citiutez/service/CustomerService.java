@@ -35,12 +35,8 @@ public class CustomerService {
         existence.setPhone(customer.getPhone());
         existence.setBirthdate(customer.getBirthdate());
         existence.setRfc(customer.getRfc());
-        existence.setNip(customer.getNip());
-        existence.setCardtype(customer.isCardtype());
-        existence.setCard_digits(customer.getCard_digits());
         return customerRespository.save(existence);
     }
-
     public void delete(int id){
         customerRespository.deleteById(id);
     }

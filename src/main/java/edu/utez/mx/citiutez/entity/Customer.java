@@ -29,7 +29,7 @@ public class Customer implements Serializable{
 
     private String phone;
 
-    private Date birthdate;
+    private String birthdate;
 
     private String rfc;
 
@@ -37,10 +37,10 @@ public class Customer implements Serializable{
 
     private boolean cardtype;
 
-    private String card_digits;
+    private String card_digits="1233";
 
-    @OneToMany(mappedBy = "customerLogs")
+    @OneToMany(mappedBy = "customerlogs")
     @JsonIgnore
-    private List<ChangeLogs> customerLogs;
+    private List<ChangeLogs> customerlogs;
 
 }

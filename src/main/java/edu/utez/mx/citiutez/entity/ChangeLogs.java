@@ -19,10 +19,10 @@ public class ChangeLogs implements Serializable {
 
     @ManyToOne
     @JoinColumn(name="employee_id")
-    private Employee employeeLogs;
+    private Employee employeelogs;
 
     @ManyToOne
     @JoinColumn(name="customer_id")
-    private Customer customerLogs;
+    private Customer customerlogs;
 
 }

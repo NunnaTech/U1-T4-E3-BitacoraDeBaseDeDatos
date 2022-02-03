@@ -23,25 +23,27 @@
 
 <div class="container mt-2">
     <div class="card shadow-sm p-3 bg-body rounded">
+        <form th:action="@{/client/save}" method="post" th:object="${newclient}"  >
         <div class="row p-4">
+
             <div class="col-4">
                 <label class="form-label">Nombre(s):</label>
                 <div class="input-group">
-                    <input type="text" class="form-control" id="1">
+                    <input type="text" class="form-control" name="name"  th:field="*{name}">
                     <span class="material-icons p-2">group</span>
                 </div>
             </div>
             <div class="col-4">
                 <label class="form-label">Primer Apellido:</label>
                 <div class="input-group">
-                    <input type="text" class="form-control" id="2">
+                    <input type="text" class="form-control" name="firstname"  th:field="*{firstname}">
                     <span class="material-icons p-2">group</span>
                 </div>
             </div>
             <div class="col-4">
                 <label class="form-label">Segundo Apellido:</label>
                 <div class="input-group">
-                    <input type="text" class="form-control" id="3">
+                    <input type="text" class="form-control" name="secondname" th:field="*{secondname}">
                     <span class="material-icons p-2">group</span>
                 </div>
             </div>
@@ -50,21 +52,21 @@
             <div class="col-4">
                 <label class="form-label">Dirección:</label>
                 <div class="input-group">
-                    <input type="text" class="form-control" id="4">
+                    <input type="text" class="form-control"   name="address" th:field="*{address}">
                     <span class="material-icons p-2">place</span>
                 </div>
             </div>
             <div class="col-4">
                 <label class="form-label">Teléfono:</label>
                 <div class="input-group">
-                    <input type="text" class="form-control" id="5">
+                    <input type="text" class="form-control" name="phone" th:field="*{phone}">
                     <span class="material-icons p-2">phone</span>
                 </div>
             </div>
             <div class="col-4">
                 <label class="form-label">Fecha de Nacimiento:</label>
                 <div class="input-group">
-                    <input type="text" class="form-control" id="6">
+                    <input type="text" class="form-control" name="birthdate" th:field="*{birthdate}">
                     <span class="material-icons p-2">calendar_today</span>
                 </div>
             </div>
@@ -73,27 +75,25 @@
             <div class="col-4">
                 <label class="form-label">RCF:</label>
                 <div class="input-group">
-                    <input type="text" class="form-control" id="7">
+                    <input type="text" class="form-control" name="rfc"  th:field="*{rfc}">
                     <span class="material-icons p-2">article</span>
                 </div>
             </div>
             <div class="col-4">
                 <label class="form-label">NIP:</label>
                 <div class="input-group">
-                    <input type="text" class="form-control" id="8">
+                    <input type="text" class="form-control"  name="nip" th:field="*{nip}">
                     <span class="material-icons p-2">lock</span>
                 </div>
             </div>
             <div class="col-4">
                 <label class="form-label">Tipo de tarjeta:</label>
-                <select class="form-select">
-                    <option value="1">Seleccionar</option>
-                    <option value="2">Débito</option>
-                    <option value="3">Crédito</option>
+                <select class="form-select"  name="cardtype" th:field="*{cardtype}">
+                    <option th:value="0">Débito</option>
+                    <option th:value="1">Crédito</option>
                 </select>
             </div>
         </div>
-
         <div class="row p-4">
             <div class="col-4">
             </div>
@@ -101,10 +101,11 @@
             </div>
             <div class="col-4">
                 <div class="d-grid gap-2">
-                    <button type="button" class="btn btn-success">Crear</button>
+                    <button type="submit"class="btn btn-success">Crear</button>
                 </div>
             </div>
         </div>
+        </form>
     </div>
 </div>
 
