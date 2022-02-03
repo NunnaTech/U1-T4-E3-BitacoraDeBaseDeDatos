@@ -55,19 +55,19 @@
                 <th scope="col">Nombre(s)</th>
                 <th scope="col">Primer Apellido</th>
                 <th scope="col">Segundo Apellido</th>
-                <th scope="col">RFC</th>
+                <th scope="col">Email</th>
                 <th scope="col">Acciones</th>
             </tr>
             </thead>
             <tbody>
-            <tr>
-                <td>Raúl</td>
-                <td>Adame</td>
-                <td>Najera</td>
-                <td>123456</td>
+            <tr th:each="emp:${employees}">
+                <td>[[${emp.name}]]</td>
+                <td>[[${emp.firstname}]]</td>
+                <td>[[${emp.secondname}]]</td>
+                <td>[[${emp.email}]]</td>
                 <td>
-                    <button type="button" class="btn btn-warning ">Editar</button>
-                    <button type="button" class="btn btn-danger">Eliminar</button>
+                    <a type="button" class="btn btn-warning" th:href="@{/employee/edit/{id}(id=${emp.id})}">Editar</a>
+                    <a type="button" class="btn btn-danger" th:href="@{/employee/delete/{id}(id=${emp.id})}">Eliminar</a>
                 </td>
             </tr>
             </tbody>
@@ -87,7 +87,7 @@
         $('#employees').DataTable( {
             "language": {
                 "lengthMenu": "Mostrar _MENU_ registros por página",
-                "zeroRecords": "Nada encontrado - lo siento",
+                "zeroRecords": "Ningún registro encontrado",
                 "info": "Mostrando página _PAGE_ de _PAGES_",
                 "infoEmpty": "Registros no disponibles",
                 "infoFiltered": "(filtrados desde _MAX_ total registros)"
