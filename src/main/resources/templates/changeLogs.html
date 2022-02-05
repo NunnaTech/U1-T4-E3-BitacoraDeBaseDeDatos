@@ -45,6 +45,7 @@
             <tr>
                 <th>RFC del cliente</th>
                 <th>E-mail del empleado</th>
+                <th>Tipo Usuario</th>
                 <th>Información</th>
                 <th>Acción</th>
                 <th>Fecha y hora</th>
@@ -54,6 +55,7 @@
             <tr th:each="tmpc: ${mychanges}">
                 <td th:text="${tmpc.customerlogs.rfc}"></td>
                 <td th:text="${tmpc.employeelogs.email}"></td>
+                <td th:text="${tmpc.employeelogs.isadmin} ? 'Administrador':'Empleado'"></td>
                 <td th:text="${tmpc.information}"></td>
                 <td th:text="${tmpc.action}"></td>
                 <td th:text="${tmpc.datetime}"></td>

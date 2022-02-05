@@ -31,7 +31,7 @@ public class LoginController {
                 return "redirect:/session";
             } else if (session.get("isAdmin") == "false") {
                 sessionUser.setAttribute("idUser", session.get("idUser"));
-                return "redirect:/employee/allEmployee";
+                return "redirect:/client/allClient";
             }
         }
         return "redirect:/";

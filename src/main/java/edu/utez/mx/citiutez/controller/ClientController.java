@@ -5,15 +5,15 @@ import edu.utez.mx.citiutez.service.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
+
+import javax.servlet.http.HttpSession;
 
 @Controller
 public class ClientController {
     @Autowired
     private CustomerService customerService;
+
 
     @GetMapping("/client/register")
     public String registerClientes(Model model) {
@@ -23,15 +23,14 @@ public class ClientController {
     }
 
     @PostMapping("/client/save")
-    public String saveClient(@ModelAttribute("customer") Customer customer) {
-        customerService.save(customer);
+    public String saveClient(@ModelAttribute("customer") Customer customer, @RequestParam("idUser") int idUser) {
+        System.out.println(idUser);
+        customerService.save(customer,idUser);
         return "redirect:/client/allClient";
     }
 
-
     @GetMapping("/client/allClient")
-    public String listAllClient(Model model)
-    {
+    public String listAllClient(Model model) {
         model.addAttribute("listclientes",customerService.getAll());
         return "allClient";
     }
@@ -43,13 +42,14 @@ public class ClientController {
     }
 
     @PostMapping("/client/update/{id}")
-    public String updateClient(@PathVariable Integer id, @ModelAttribute("customer") Customer customer) {
-        customerService.update(id, customer);
+    public String updateClient(@PathVariable Integer id, @ModelAttribute("customer") Customer customer,@RequestParam("idUser") int idUser) {
+        customerService.update(id, customer,  idUser );
         return "redirect:/client/allClient";
     }
-    @GetMapping("/client/delete/{id}")
-    public String deleteClient(@PathVariable Integer id) {
-        customerService.delete(id);
+
+    @GetMapping("/client/delete/{id}/{idUser}")
+    public String deleteClient(@PathVariable Integer id,@PathVariable(name = "idUser") int idUser) {
+        customerService.delete(id,idUser);
         return "redirect:/client/allClient";
     }
 }
