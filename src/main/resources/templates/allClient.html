@@ -55,19 +55,21 @@
         <table class="table">
             <thead>
             <tr>
+                <th>RFC</th>
                 <th>Nombre(s)</th>
                 <th>Primer Apellido</th>
                 <th>Segundo Apellido</th>
-                <th>RFC</th>
+                <th>Teléfono</th>
                 <th>Acciones</th>
             </tr>
             </thead>
             <tbody>
             <tr th:each="tmps: ${listclientes}">
+                <td th:text="${tmps.rfc}"></td>
                 <td th:text="${tmps.name}"></td>
                 <td th:text="${tmps.firstname}"></td>
                 <td th:text="${tmps.secondname}"></td>
-                <td th:text="${tmps.rfc}"></td>
+                <td th:text="${tmps.phone}"></td>
                 <td>
                    <div th:if="${tmps.isactive}">
                        <a type="button" class="btn btn-labeled btn-success" th:href="@{/client/activate/{id}/{idUser}(id=${tmps.id}, idUser=${session.idUser})}">
