@@ -32,7 +32,6 @@
     </div>
 </nav>
 
-
 <div class="container d-flex align-items-center justify-content-center mt-3">
     <div class="row mt-2">
         <div class="col">
@@ -43,88 +42,91 @@
 
 <div class="container mt-2">
     <div class="card shadow-sm p-3 bg-body rounded">
-        <div class="row p-4">
-            <div class="col-4">
-                <label class="form-label">Nombre(s):</label>
-                <div class="input-group">
-                    <input type="text" class="form-control" id="1">
-                    <span class="material-icons p-2">group</span>
+        <form th:action="@{/employee/save}" th:object="${employee}" method="post">
+            <div class="row p-4">
+                <div class="col-4">
+                    <label class="form-label">Nombre(s):</label>
+                    <div class="input-group">
+                        <input type="text" class="form-control" name="name" th:field="*{name}">
+                        <span class="material-icons p-2">group</span>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <label class="form-label">Primer Apellido:</label>
+                    <div class="input-group">
+                        <input type="text" class="form-control" name="firstname" th:field="*{firstname}">
+                        <span class="material-icons p-2">group</span>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <label class="form-label">Segundo Apellido:</label>
+                    <div class="input-group">
+                        <input type="text" class="form-control" name="secondname" th:field="*{secondname}">
+                        <span class="material-icons p-2">group</span>
+                    </div>
                 </div>
             </div>
-            <div class="col-4">
-                <label class="form-label">Primer Apellido:</label>
-                <div class="input-group">
-                    <input type="text" class="form-control" id="2">
-                    <span class="material-icons p-2">group</span>
-                </div>
-            </div>
-            <div class="col-4">
-                <label class="form-label">Segundo Apellido:</label>
-                <div class="input-group">
-                    <input type="text" class="form-control" id="3">
-                    <span class="material-icons p-2">group</span>
-                </div>
-            </div>
-        </div>
-        <div class="row p-4">
-            <div class="col-4">
-                <label class="form-label">Dirección:</label>
-                <div class="input-group">
-                    <input type="text" class="form-control" id="4">
-                    <span class="material-icons p-2">place</span>
-                </div>
-            </div>
-            <div class="col-4">
-                <label class="form-label">Teléfono:</label>
-                <div class="input-group">
-                    <input type="text" class="form-control" id="5">
-                    <span class="material-icons p-2">phone</span>
-                </div>
-            </div>
-            <div class="col-4">
-                <label class="form-label">Fecha de Nacimiento:</label>
-                <div class="input-group">
-                    <input type="text" class="form-control" id="6">
-                    <span class="material-icons p-2">calendar_today</span>
-                </div>
-            </div>
-        </div>
-        <div class="row p-4">
-            <div class="col-4">
-                <label class="form-label">Email:</label>
-                <div class="input-group">
-                    <input type="text" class="form-control" id="7">
-                    <span class="material-icons p-2">email</span>
-                </div>
-            </div>
-            <div class="col-4">
-                <label class="form-label">Contraseña:</label>
-                <div class="input-group">
-                    <input type="text" class="form-control" id="8">
-                    <span class="material-icons p-2">lock</span>
-                </div>
-            </div>
-            <div class="col-4">
-                <label class="form-label">Tipo:</label>
-                <select class="form-select">
-                    <option value="1">Uno</option>
-                    <option value="2">Dos</option>
-                    <option value="3">Tres</option>
-                </select>
-            </div>
-        </div>
 
-        <div class="row p-4">
-            <div class="col-4">
-            </div>
-            <div class="col-4">
-            </div>
-            <div class="col-4">
-                <div class="d-grid gap-2">
-                    <button type="button" class="btn btn-success">Crear</button>
+            <div class="row p-4">
+                <div class="col-4">
+                    <label class="form-label">Dirección:</label>
+                    <div class="input-group">
+                        <input type="text" class="form-control" name="address" th:field="*{address}">
+                        <span class="material-icons p-2">place</span>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <label class="form-label">Teléfono:</label>
+                    <div class="input-group">
+                        <input type="text" class="form-control" name="phone" th:field="*{phone}">
+                        <span class="material-icons p-2">phone</span>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <label class="form-label">Fecha de Nacimiento:</label>
+                    <div class="input-group">
+                        <input type="text" class="form-control" name="birthdate" th:field="*{birthdate}">
+                        <span class="material-icons p-2">calendar_today</span>
+                    </div>
                 </div>
             </div>
-        </div>
+
+            <div class="row p-4">
+                <div class="col-4">
+                    <label class="form-label">Email:</label>
+                    <div class="input-group">
+                        <input type="text" class="form-control" name="email" th:field="*{email}">
+                        <span class="material-icons p-2">email</span>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <label class="form-label">Contraseña:</label>
+                    <div class="input-group">
+                        <input type="password" class="form-control" name="password" th:field="*{password}">
+                        <span class="material-icons p-2">lock</span>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <label class="form-label">Tipo de usuario:</label>
+                    <select class="form-select"  name="isadmin" th:field="*{isadmin}">
+                        <option th:value="0">Empleado</option>
+                        <option th:value="1">Administrador</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="row p-4">
+                <div class="col-4">
+                </div>
+                <div class="col-4">
+                </div>
+                <div class="col-4">
+                    <div class="d-grid gap-2">
+                        <button type="submit" class="btn btn-success">Crear</button>
+                    </div>
+                </div>
+            </div>
+        </form>
     </div>
 </div>
 

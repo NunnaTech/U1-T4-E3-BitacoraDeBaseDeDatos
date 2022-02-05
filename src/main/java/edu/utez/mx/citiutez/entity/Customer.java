@@ -39,6 +39,8 @@ public class Customer implements Serializable{
 
     private String card_digits="1233";
 
+    private boolean isactive;
+
     @OneToMany(mappedBy = "customerlogs")
     @JsonIgnore
     private List<ChangeLogs> customerlogs;

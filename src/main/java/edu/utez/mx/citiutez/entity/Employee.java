@@ -30,19 +30,20 @@ public class Employee implements  Serializable{
 
     private String phone;
 
-    private Date birthdate;
+    private String birthdate;
 
     private String email;
 
     private String password;
 
     private boolean isadmin;
+
     @JsonIgnore
     @OneToMany (mappedBy = "employee")
     private List<SessionLogs> sessions;
 
     @OneToMany(mappedBy = "employeelogs")
     @JsonIgnore
-    private List<ChangeLogs> changeLogsEmployee;
+    private List<ChangeLogs> changeLogs;
 
 }

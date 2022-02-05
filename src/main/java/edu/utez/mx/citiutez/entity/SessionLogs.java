@@ -1,6 +1,7 @@
 package edu.utez.mx.citiutez.entity;
 
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.sql.Timestamp;
@@ -8,9 +9,15 @@ import java.io.Serializable;
 @Entity
 @Table(name="session_logs")
 @Data
+@NoArgsConstructor
 public class SessionLogs implements Serializable{
 
     private static final long serialVersionUID = 1L;
+
+    public SessionLogs(Timestamp datetime, Employee employee) {
+        this.datetime = datetime;
+        this.employee = employee;
+    }
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

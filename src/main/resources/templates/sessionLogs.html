@@ -28,7 +28,7 @@
                 </li>
             </ul>
             <form class="d-flex">
-                <button class="btn btn-success" type="submit">Salir</button>
+                <a class="btn btn-success" type="submit" th:href="@{/}">Salir</a>
             </form>
         </div>
     </div>
@@ -38,6 +38,7 @@
     <div class="container mt-3">
         <div class="text-center">
             <h2 class="card-title">Bitácora de movimientos</h2>
+            <div hidden th:text="${session.idUser}"></div>
             <p style="font-size:30px; margin-bottom:-5px; font-weight: 300">Inicios de sesión</p>
         </div>
         <table id="example" class="table table-striped hover">

@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
@@ -28,7 +28,7 @@
                 </li>
             </ul>
             <form class="d-flex">
-                <button class="btn btn-success" type="submit">Salir</button>
+                <a class="btn btn-success" type="submit" th:href="@{/}">Salir</a>
             </form>
         </div>
     </div>
@@ -45,46 +45,20 @@
             <tr>
                 <th>RFC del cliente</th>
                 <th>E-mail del empleado</th>
+                <th>Tipo Usuario</th>
                 <th>Información</th>
                 <th>Acción</th>
                 <th>Fecha y hora</th>
             </tr>
             </thead>
             <tbody>
-            <tr>
-                <td>ADUFU13AOWDHN</td>
-                <td>Smith@gmail.com</td>
-                <td>XD@gmail.com</td>
-                <td>datos del cliente</td>
-                <td>2011/04/25:12:32</td>
-            </tr>
-            <tr>
-                <td>ADUFU13AOWDHN</td>
-                <td>Smith@gmail.com</td>
-                <td>XD@gmail.com</td>
-                <td>datos del cliente</td>
-                <td>2011/04/25:12:32</td>
-            </tr>
-            <tr>
-                <td>ADUFU13AOWDHN</td>
-                <td>Smith@gmail.com</td>
-                <td>XD@gmail.com</td>
-                <td>datos del cliente</td>
-                <td>2011/04/25:12:32</td>
-            </tr>
-            <tr>
-                <td>ADUFU13AOWDHN</td>
-                <td>Smith@gmail.com</td>
-                <td>XD@gmail.com</td>
-                <td>datos del cliente</td>
-                <td>2011/04/25:12:32</td>
-            </tr>
-            <tr>
-                <td>ADUFU13AOWDHN</td>
-                <td>Smith@gmail.com</td>
-                <td>XD@gmail.com</td>
-                <td>datos del cliente</td>
-                <td>2011/04/25:12:32</td>
+            <tr th:each="tmpc: ${mychanges}">
+                <td th:text="${tmpc.customerlogs.rfc}"></td>
+                <td th:text="${tmpc.employeelogs.email}"></td>
+                <td th:text="${tmpc.employeelogs.isadmin} ? 'Administrador':'Empleado'"></td>
+                <td th:text="${tmpc.information}"></td>
+                <td th:text="${tmpc.action}"></td>
+                <td th:text="${tmpc.datetime}"></td>
             </tr>
             </tbody>
         </table>
