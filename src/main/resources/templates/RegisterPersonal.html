@@ -106,7 +106,13 @@
                         <span class="material-icons p-2">lock</span>
                     </div>
                 </div>
-                <div class="col-4"></div>
+                <div class="col-4">
+                    <label class="form-label">Tipo de usuario:</label>
+                    <select class="form-select"  name="isadmin" th:field="*{isadmin}">
+                        <option th:value="0">Empleado</option>
+                        <option th:value="1">Administrador</option>
+                    </select>
+                </div>
             </div>
 
             <div class="row p-4">
