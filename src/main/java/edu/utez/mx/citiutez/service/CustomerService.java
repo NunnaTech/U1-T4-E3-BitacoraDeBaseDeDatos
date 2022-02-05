@@ -4,7 +4,6 @@ import edu.utez.mx.citiutez.entity.ChangeLogs;
 import edu.utez.mx.citiutez.entity.Customer;
 import edu.utez.mx.citiutez.entity.Employee;
 import edu.utez.mx.citiutez.respository.CustomerRespository;
-import org.hibernate.event.spi.PostInsertEvent;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -39,7 +38,7 @@ public class CustomerService {
         changeLogsService.save(new ChangeLogs(
                 employee,
                 client,
-                "Insert",
+                "Create",
                 "Se inserto al cliente con RFC: " + client.getRfc()
                 , timestamp));
         return client;
@@ -58,6 +57,16 @@ public class CustomerService {
         Employee employee = employeeService.getOne(idUser);
         changeLogsService.save(new ChangeLogs(employee, existence, "Update", "Se actualizo al cliente con RFC: " + existence.getRfc(), timestamp));
         return customerRespository.save(existence);
+    }
+
+    public void activate(int id, int idUser){
+        Timestamp timestamp = new Timestamp(System.currentTimeMillis());
+        Customer customer = getOne(id);
+        Employee employee = employeeService.getOne(idUser);
+        changeLogsService.save(new ChangeLogs(employee,
+                customer, "Update", "Se reactivo al cliente con RFC: " + customer.getRfc(), timestamp));
+        customer.setIsactive(false);
+        customerRespository.save(customer);
     }
 
     public void delete(int id, int idUser) {

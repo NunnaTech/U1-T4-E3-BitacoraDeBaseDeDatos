@@ -70,7 +70,7 @@
                 <td th:text="${tmps.rfc}"></td>
                 <td>
                    <div th:if="${tmps.isactive}">
-                       <a type="button" class="btn btn-labeled btn-success" th:href="@{/client/delete/{id}/{idUser}(id=${tmps.id}, idUser=${session.idUser})}">
+                       <a type="button" class="btn btn-labeled btn-success" th:href="@{/client/activate/{id}/{idUser}(id=${tmps.id}, idUser=${session.idUser})}">
                            <span class="btn-label"><i class="fa fa-eye" aria-hidden="true"></i></span> Activar</a>
                    </div>
                     <div th:unless="${tmps.isactive}">
