@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
@@ -15,21 +15,22 @@
 <div class="d-flex justify-content-center align-items-center align-self-center m-1" >
     <div class="card text-center mt-5" style="width: 27rem; height: 30rem">
         <div class="card-body">
-            <p style="font-size:22px; margin-bottom:-5px; font-weight: 300">CitiUtez</p>
-            <h2 class="card-title">Iniciar Sesión</h2>
-            <div class="text-center">
-                <img th:src="@{/img/Vector.png}" class="rounded" width="100" height="100" alt="user">
-            </div>
-            <div class="input-group flex-nowrap mt-3 mb-2 p-2">
-                <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="addon-wrapping">
-                <span class="material-icons input-group-text">mail</span>
-            </div>
-            <div class="input-group flex-nowrap mt-2 mb-5 p-2">
-                <input type="password" class="form-control" placeholder="Password" aria-label="Username" aria-describedby="addon-wrapping">
-                <span class="material-icons input-group-text gray">lock</span>
-            </div>
-
-            <a href="#" class="btn btn-primary " style="width:250px; background-color:#24752C">Acceder</a>
+            <form th:action="@{/login}" th:object="${loginForm}" method="post">
+                <p style="font-size:22px; margin-bottom:-5px; font-weight: 300">CitiUtez</p>
+                <h2 class="card-title">Iniciar Sesión</h2>
+                <div class="text-center">
+                    <img th:src="@{/img/Vector.png}" class="rounded" width="100" height="100" alt="user">
+                </div>
+                <div class="input-group flex-nowrap mt-3 mb-2 p-2">
+                    <input type="text" class="form-control" placeholder="email" name="email">
+                    <span class="material-icons input-group-text">mail</span>
+                </div>
+                <div class="input-group flex-nowrap mt-2 mb-5 p-2">
+                    <input type="password" class="form-control" placeholder="password" name="password">
+                    <span class="material-icons input-group-text gray">lock</span>
+                </div>
+                <button type="submit" class="btn btn-primary " style="width:250px; background-color:#24752C">Acceder</button>
+            </form>
         </div>
     </div>
 </div>
