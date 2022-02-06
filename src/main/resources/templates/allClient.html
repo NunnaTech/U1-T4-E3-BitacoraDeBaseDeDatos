@@ -14,17 +14,17 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css" integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous">
     <!-- Font Awesome CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
-    <title>Registrar Personal</title>
+    <title>CitiUtez | Clientes</title>
 </head>
 <body>
 
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark">
     <div class="container-fluid">
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-            <a class="navbar-brand" href="#">CitiUtez</a>
+            <a class="navbar-brand" href="#" style="font-size:30px">CitiUtez</a>
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
                     <a class="nav-link" aria-current="page" th:href="@{/client/allClient}">Lista de Clientes</a>
@@ -40,7 +40,7 @@
 <div class="container d-flex align-items-center justify-content-center">
     <div class="row mt-2">
         <div class="text-center col">
-            <h3>OPERACIONES CON CLIENTES</h3>
+            <h3>Operaciones con Clientes</h3>
         </div>
     </div>
 </div>
@@ -60,7 +60,7 @@
                 <th>Primer Apellido</th>
                 <th>Segundo Apellido</th>
                 <th>Teléfono</th>
-                <th>Acciones</th>
+                <th class="text-center">Acciones</th>
             </tr>
             </thead>
             <tbody>
@@ -70,13 +70,13 @@
                 <td th:text="${tmps.firstname}"></td>
                 <td th:text="${tmps.secondname}"></td>
                 <td th:text="${tmps.phone}"></td>
-                <td>
+                <td class="text-left">
                    <div th:if="${tmps.isactive}">
                        <a type="button" class="btn btn-labeled btn-success" th:href="@{/client/activate/{id}/{idUser}(id=${tmps.id}, idUser=${session.idUser})}">
-                           <span class="btn-label"><i class="fa fa-eye" aria-hidden="true"></i></span> Activar</a>
+                           <span class="btn-label"><i class="fa fa-refresh" aria-hidden="true"></i></span> Activar</a>
                    </div>
                     <div th:unless="${tmps.isactive}">
-                        <a type="button" class="btn btn-labeled btn-warning" th:href="@{/client/edit/{id}(id=${tmps.id})}">
+                        <a type="button" class="btn btn-labeled btn-warning" style="color:white" th:href="@{/client/edit/{id}(id=${tmps.id})}">
                             <span class="btn-label"><i class="fa fa-pencil"></i></span> Editar</a>
                         <a type="button" class="btn btn-labeled btn-danger" th:href="@{/client/delete/{id}/{idUser}(id=${tmps.id}, idUser=${session.idUser})}">
                             <span class="btn-label"><i class="fa fa-trash"></i></span> Eliminar</a>

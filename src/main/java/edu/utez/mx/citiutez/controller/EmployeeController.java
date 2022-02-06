@@ -44,6 +44,12 @@ public class EmployeeController {
         return "redirect:/employee/allEmployee";
     }
 
+    @GetMapping("/employee/activate/{id}")
+    public String activate(@PathVariable Integer id){
+        employeeService.activate(id);
+        return "redirect:/employee/allEmployee";
+    }
+
     @GetMapping("/employee/delete/{id}")
     public String deleteEmployee(@PathVariable Integer id) {
         employeeService.delete(id);
