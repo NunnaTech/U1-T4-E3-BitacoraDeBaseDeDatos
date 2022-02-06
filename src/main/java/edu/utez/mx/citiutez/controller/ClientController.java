@@ -47,6 +47,12 @@ public class ClientController {
         return "redirect:/client/allClient";
     }
 
+    @GetMapping("/client/activate/{id}/{idUser}")
+    public String activate(@PathVariable Integer id,@PathVariable(name = "idUser") int idUser){
+        customerService.activate(id, idUser);
+        return "redirect:/client/allClient";
+    }
+
     @GetMapping("/client/delete/{id}/{idUser}")
     public String deleteClient(@PathVariable Integer id,@PathVariable(name = "idUser") int idUser) {
         customerService.delete(id,idUser);

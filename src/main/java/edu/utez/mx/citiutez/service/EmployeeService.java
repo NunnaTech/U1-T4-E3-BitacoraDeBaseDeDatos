@@ -1,5 +1,7 @@
 package edu.utez.mx.citiutez.service;
 
+import edu.utez.mx.citiutez.entity.ChangeLogs;
+import edu.utez.mx.citiutez.entity.Customer;
 import edu.utez.mx.citiutez.entity.Employee;
 import edu.utez.mx.citiutez.entity.SessionLogs;
 import edu.utez.mx.citiutez.respository.EmployeeRespository;
@@ -85,8 +87,16 @@ public class EmployeeService{
         return employeeRespository.save(existence);
     }
 
+    public void activate(int id){
+        Employee employee = getOne(id);
+        employee.setIsactive(false);
+        employeeRespository.save(employee);
+    }
+
     public void delete(int id){
-        employeeRespository.deleteById(id);
+        Employee employee = getOne(id);
+        employee.setIsactive(true);
+        employeeRespository.save(employee);
     }
 
 }

@@ -38,6 +38,8 @@ public class Employee implements  Serializable{
 
     private boolean isadmin;
 
+    private boolean isactive;
+
     @JsonIgnore
     @OneToMany (mappedBy = "employee")
     private List<SessionLogs> sessions;
