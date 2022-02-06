@@ -28,9 +28,11 @@ public class LoginController {
         if (session.get("noUser") == "false") {
             if (session.get("isAdmin") == "true") {
                 sessionUser.setAttribute("idUser", session.get("idUser"));
+                sessionUser.setAttribute("isAdmin", session.get("isAdmin"));
                 return "redirect:/session";
             } else if (session.get("isAdmin") == "false") {
                 sessionUser.setAttribute("idUser", session.get("idUser"));
+                sessionUser.setAttribute("isAdmin", session.get("isAdmin"));
                 return "redirect:/client/allClient";
             }
         }
