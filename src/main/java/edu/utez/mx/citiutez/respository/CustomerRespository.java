@@ -9,6 +9,4 @@ import java.util.List;
 
 @Repository
 public interface CustomerRespository extends CrudRepository<Customer,Integer> {
-    @Query(value = "select e.name, e.firstname, e.secondname, e.rfc from customers e", nativeQuery = true)
-    List<Customer> getAllCustomers();
 }

@@ -17,13 +17,13 @@ public class EmployeeController {
     public String registerEmployee(Model model) {
         Employee employee = new Employee();
         model.addAttribute("employee", employee);
-        return "RegisterPersonal";
+        return "registerEmployee";
     }
 
     @GetMapping("/employee/allEmployee")
     public String listAllEmployees(Model model) {
         model.addAttribute("employees", employeeService.getAll());
-        return "AllEmployee";
+        return "allEmployee";
     }
 
     @PostMapping("/employee/save")
@@ -35,7 +35,7 @@ public class EmployeeController {
     @GetMapping("/employee/edit/{id}")
     public String editEmployee(@PathVariable Integer id, Model model) {
         model.addAttribute("employee", employeeService.getOne(id));
-        return "EditEmployee";
+        return "editEmployee";
     }
 
     @PostMapping("/employee/update/{id}")
