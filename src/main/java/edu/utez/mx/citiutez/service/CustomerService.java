@@ -11,6 +11,8 @@ import java.math.BigInteger;
 import java.sql.Timestamp;
 import java.util.List;
 import java.util.Random;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 @Service
 public class CustomerService {
@@ -34,13 +36,9 @@ public class CustomerService {
 
     public Customer save(Customer customer, int idUser) {
         Random random = new Random();
-        String digits = "";
-
-        for (int i = 0; i < 15; i++) {
-            int value = random.nextInt(1 + 10) + 1;
-            digits += Integer.toString(value);
-        }
-        System.out.println(digits.length());
+        String digits = IntStream.rangeClosed(1, 10)
+                .mapToObj(i -> Integer.toString(random.nextInt(1 + 10)))
+                .collect(Collectors.joining(""));
         Timestamp timestamp = new Timestamp(System.currentTimeMillis());
         customer.setIsactive(true);
         customer.setCard_digits(digits);
@@ -52,6 +50,7 @@ public class CustomerService {
                 "Create",
                 client.toString()
                 , timestamp, "No hay cambios"));
+        digits="";
         return client;
     }
 

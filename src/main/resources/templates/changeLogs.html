@@ -22,30 +22,32 @@
             <h2 class="card-title">Bitácora de movimientos</h2>
             <p style="font-size:30px; margin-bottom:-5px; font-weight: 300">Registro de cambios</p>
         </div>
-        <table id="example" class="table">
-            <thead>
-            <tr>
-                <th class="table-active">RFC del cliente</th>
-                <th class="table-active">E-mail del empleado</th>
-                <th class="table-active">Tipo Usuario</th>
-                <th class="table-active">Valor anterior</th>
-                <th class="table-active">Valor nuevo</th>
-                <th class="table-active">Acción</th>
-                <th class="table-active">Fecha y hora</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr th:each="tmpc: ${mychanges}">
-                <td th:text="${tmpc.customerlogs.rfc}"></td>
-                <td th:text="${tmpc.employeelogs.email}"></td>
-                <td th:text="${tmpc.employeelogs.isadmin} ? 'Administrador':'Empleado'"></td>
-                <td th:text="${tmpc.previous}"></td>
-                <td th:text="${tmpc.next}"></td>
-                <td th:text="${tmpc.action}"></td>
-                <td th:text="${tmpc.datetime}"></td>
-            </tr>
-            </tbody>
-        </table>
+        <div class="card shadow-sm p-3 bg-body rounded">
+            <table id="example" class="table">
+                <thead>
+                <tr>
+                    <th class="table-active">RFC del cliente</th>
+                    <th class="table-active">E-mail del empleado</th>
+                    <th class="table-active">Tipo Usuario</th>
+                    <th class="table-active">Valor anterior</th>
+                    <th class="table-active">Valor nuevo</th>
+                    <th class="table-active">Acción</th>
+                    <th class="table-active">Fecha y hora</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="tmpc: ${mychanges}">
+                    <td th:text="${tmpc.customerlogs.rfc}"></td>
+                    <td th:text="${tmpc.employeelogs.email}"></td>
+                    <td th:text="${tmpc.employeelogs.isadmin} ? 'Administrador':'Empleado'"></td>
+                    <td th:text="${tmpc.previous}"></td>
+                    <td th:text="${tmpc.next}"></td>
+                    <td th:text="${tmpc.action}"></td>
+                    <td th:text="${tmpc.datetime}"></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
     </div>
 
 </div>
