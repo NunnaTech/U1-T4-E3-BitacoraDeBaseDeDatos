@@ -36,7 +36,8 @@ public class EmployeeService{
     }
 
     public Employee save(Employee employee){
-         return employeeRespository.save(employee);
+        employee.setIsactive(true);
+        return employeeRespository.save(employee);
     }
 
     public Map<String, Object> checkUser(Employee login){
@@ -89,13 +90,13 @@ public class EmployeeService{
 
     public void activate(int id){
         Employee employee = getOne(id);
-        employee.setIsactive(false);
+        employee.setIsactive(true);
         employeeRespository.save(employee);
     }
 
     public void delete(int id){
         Employee employee = getOne(id);
-        employee.setIsactive(true);
+        employee.setIsactive(false);
         employeeRespository.save(employee);
     }
 

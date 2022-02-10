@@ -15,12 +15,13 @@ public class ChangeLogs implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    public ChangeLogs(Employee employeelogs, Customer customerlogs, String action, String information, Timestamp datetime) {
+    public ChangeLogs(Employee employeelogs, Customer customerlogs, String action, String previous, Timestamp datetime, String next) {
         this.employeelogs = employeelogs;
         this.customerlogs = customerlogs;
         this.action = action;
-        this.information = information;
+        this.previous = previous;
         this.datetime = datetime;
+        this.next = next;
     }
 
     @Id
@@ -38,8 +39,10 @@ public class ChangeLogs implements Serializable {
 
     private String action;
 
-    private String information;
+    private String previous;
 
     private Timestamp datetime;
+
+    private String next;
 
 }

@@ -22,7 +22,6 @@ public class ClientController {
 
     @PostMapping("/client/save")
     public String saveClient(@ModelAttribute("customer") Customer customer, @RequestParam("idUser") int idUser) {
-        System.out.println(idUser);
         customerService.save(customer,idUser);
         return "redirect:/client/allClient";
     }

@@ -18,28 +18,10 @@
 </head>
 <body th:onload="checkUser(([[${session.isAdmin}]]))">
 
-<nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark">
-    <div class="container-fluid">
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-            <a class="navbar-brand" href="#" style="font-size:30px">CitiUtez</a>
-            <a id="check" hidden th:href="@{/}"></a>
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="nav-item">
-                    <a class="nav-link" aria-current="page" th:href="@{/client/allClient}">Lista de Clientes</a>
-                </li>
-            </ul>
-            <form class="d-flex">
-                <a class="btn btn-success" type="submit" th:href="@{/}">Salir</a>
-            </form>
-        </div>
-    </div>
-</nav>
+<div th:replace="employeeMenu :: employeeMenuFrag"></div>
 
 <div class="container d-flex align-items-center justify-content-center">
-    <div class="row mt-2">
+    <div class="row mt-4">
         <div class="text-center col">
             <h3>Operaciones con Clientes</h3>
         </div>
@@ -51,17 +33,17 @@
         <span class="btn-label"><i class="fa fa-plus"></i></span> Nuevo</a>
 </div>
 
-<div class="container mt-2">
+<div class="container mt-2 mb-3">
     <div class="card shadow-sm p-3 bg-body rounded">
         <table id="customers" class="table">
             <thead>
             <tr>
-                <th>RFC</th>
-                <th>Nombre(s)</th>
-                <th>Primer Apellido</th>
-                <th>Segundo Apellido</th>
-                <th>Teléfono</th>
-                <th class="text-center">Acciones</th>
+                <th class="table-active">RFC</th>
+                <th class="table-active">Nombre(s)</th>
+                <th class="table-active">Primer Apellido</th>
+                <th class="table-active">Segundo Apellido</th>
+                <th class="table-active">Teléfono</th>
+                <th class="text-center table-active">Acciones</th>
             </tr>
             </thead>
             <tbody>
@@ -71,16 +53,16 @@
                 <td th:text="${tmps.firstname}"></td>
                 <td th:text="${tmps.secondname}"></td>
                 <td th:text="${tmps.phone}"></td>
-                <td class="text-left">
+                <td class="text-center">
                    <div th:if="${tmps.isactive}">
-                       <a type="button" class="btn btn-labeled btn-success" th:href="@{/client/activate/{id}/{idUser}(id=${tmps.id}, idUser=${session.idUser})}">
-                           <span class="btn-label"><i class="fa fa-refresh" aria-hidden="true"></i></span> Activar</a>
+                       <a type="button" class="btn btn-labeled btn-warning" style="color:white" th:href="@{/client/edit/{id}(id=${tmps.id})}">
+                           <span class="btn-label"><i class="fa fa-pencil"></i></span> Editar</a>
+                       <a type="button" class="btn btn-labeled btn-danger" th:href="@{/client/delete/{id}/{idUser}(id=${tmps.id}, idUser=${session.idUser})}">
+                           <span class="btn-label"><i class="fa fa-trash"></i></span> Eliminar</a>
                    </div>
                     <div th:unless="${tmps.isactive}">
-                        <a type="button" class="btn btn-labeled btn-warning" style="color:white" th:href="@{/client/edit/{id}(id=${tmps.id})}">
-                            <span class="btn-label"><i class="fa fa-pencil"></i></span> Editar</a>
-                        <a type="button" class="btn btn-labeled btn-danger" th:href="@{/client/delete/{id}/{idUser}(id=${tmps.id}, idUser=${session.idUser})}">
-                            <span class="btn-label"><i class="fa fa-trash"></i></span> Eliminar</a>
+                        <a type="button" class="btn btn-labeled btn-success" th:href="@{/client/activate/{id}/{idUser}(id=${tmps.id}, idUser=${session.idUser})}">
+                            <span class="btn-label"><i class="fa fa-refresh" aria-hidden="true"></i></span> Activar</a>
                     </div>
                 </td>
             </tr>
@@ -107,7 +89,8 @@
                 "zeroRecords": "Ningún registro encontrado",
                 "info": "Mostrando página _PAGE_ de _PAGES_",
                 "infoEmpty": "Registros no disponibles",
-                "infoFiltered": "(filtrados desde _MAX_ total registros)"
+                "infoFiltered": "(filtrados desde _MAX_ total registros)",
+                "sSearch":         "Buscar:"
             }
         } );
     } );

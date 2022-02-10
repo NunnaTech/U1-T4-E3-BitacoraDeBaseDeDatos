@@ -29,4 +29,28 @@ public class SessionLogs implements Serializable{
     @ManyToOne
     @JoinColumn(name="employee_id")
     private Employee employee;
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public Timestamp getDatetime() {
+        return datetime;
+    }
+
+    public void setDatetime(Timestamp datetime) {
+        this.datetime = datetime;
+    }
+
+    public Employee getEmployee() {
+        return employee;
+    }
+
+    public void setEmployee(Employee employee) {
+        this.employee = employee;
+    }
 }

@@ -1,0 +1,1 @@
+web: java -jar -Dspring.profiles.active=pdn -Dserver.port=$PORT target/citiutez-0.0.1-SNAPSHOT.jar
