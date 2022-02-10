@@ -8,11 +8,12 @@ import java.sql.Timestamp;
 import java.io.Serializable;
 @Entity
 @Table(name="session_logs")
-@Data
-@NoArgsConstructor
 public class SessionLogs implements Serializable{
 
     private static final long serialVersionUID = 1L;
+
+    public SessionLogs() {
+    }
 
     public SessionLogs(Timestamp datetime, Employee employee) {
         this.datetime = datetime;
