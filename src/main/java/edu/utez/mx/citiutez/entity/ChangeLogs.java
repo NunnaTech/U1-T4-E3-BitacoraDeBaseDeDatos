@@ -9,11 +9,12 @@ import java.sql.Timestamp;
 
 @Entity
 @Table(name="change_logs")
-@Data
-@NoArgsConstructor
 public class ChangeLogs implements Serializable {
 
     private static final long serialVersionUID = 1L;
+
+    public ChangeLogs() {
+    }
 
     public ChangeLogs(Employee employeelogs, Customer customerlogs, String action, String previous, Timestamp datetime, String next) {
         this.employeelogs = employeelogs;
@@ -45,4 +46,59 @@ public class ChangeLogs implements Serializable {
 
     private String next;
 
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public Employee getEmployeelogs() {
+        return employeelogs;
+    }
+
+    public void setEmployeelogs(Employee employeelogs) {
+        this.employeelogs = employeelogs;
+    }
+
+    public Customer getCustomerlogs() {
+        return customerlogs;
+    }
+
+    public void setCustomerlogs(Customer customerlogs) {
+        this.customerlogs = customerlogs;
+    }
+
+    public String getAction() {
+        return action;
+    }
+
+    public void setAction(String action) {
+        this.action = action;
+    }
+
+    public String getPrevious() {
+        return previous;
+    }
+
+    public void setPrevious(String previous) {
+        this.previous = previous;
+    }
+
+    public Timestamp getDatetime() {
+        return datetime;
+    }
+
+    public void setDatetime(Timestamp datetime) {
+        this.datetime = datetime;
+    }
+
+    public String getNext() {
+        return next;
+    }
+
+    public void setNext(String next) {
+        this.next = next;
+    }
 }
