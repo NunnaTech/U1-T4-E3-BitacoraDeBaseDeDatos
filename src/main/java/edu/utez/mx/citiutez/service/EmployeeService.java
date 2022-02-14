@@ -51,19 +51,16 @@ public class EmployeeService{
             if (login.getPassword().equals(session.getPassword())){
                 map.put("isLogged", "true");
                 map.put("noUser", "false");
-                if (!session.isIsadmin()) {
+                logs.setDatetime(timestamp);
+                logs.setEmployee(session);
+                map.put("idUser",session.getId());
+
+                if (!session.isIsadmin())
                     map.put("isAdmin", "false");
-                    map.put("idUser",session.getId());
-                    logs.setDatetime(timestamp);
-                    logs.setEmployee(session);
-                    saveSessionLogs(logs);
-                }else {
+                else
                     map.put("isAdmin","true");
-                    map.put("idUser",session.getId());
-                    logs.setDatetime(timestamp);
-                    logs.setEmployee(session);
-                    saveSessionLogs(logs);
-                }
+
+                saveSessionLogs(logs);
             }else{
                 map.put("noUser","true");
             }
